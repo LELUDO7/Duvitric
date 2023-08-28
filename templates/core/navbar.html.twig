@@ -1,0 +1,29 @@
+<header class="nav">
+	<div class="nav-row">
+		<h1 class="site-title">Duvitric</h1>
+		<a href="/"><img class="logo" src="images/logo.png"></a>
+		<div class="search-container">
+			<form method="POST" action="/">
+				<input name="search_field" type="text" placeholder="Search...">
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+	<nav class="nav-row">
+		<ul>
+			<li>
+				<a href="/">Accueil</a>
+			</li>
+			<li>
+				<a href="contacts">Nous contacter</a>
+			</li>
+			<li></li>
+
+		</ul>
+
+	</nav>
+</header>
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
+{% endblock %}

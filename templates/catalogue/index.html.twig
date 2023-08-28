@@ -1,0 +1,56 @@
+{% extends 'core/base.html.twig' %}
+
+{% block title %}Duvitric
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/productCart.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/catalogue.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="grid-container">
+
+		<ul class="grid-item cat_ul">
+			<h3>Categorie</h3>
+			<li class="cat_li">
+				<a href="{{ path('app_catalogue') }}">Tous</a>
+			</li>
+			{% for categorie in categories %}
+				<li class="cat_li">
+					<a href="{{ path('app_catalogue', { categorie: categorie.idCategorie }) }}">{{ categorie.categorie }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="catalogueGrid grid-item">
+			{% if produits|length > 0 %}
+				{% for produit in produits %}
+					<div class="item">
+						<a class="produit-modal btn-nom-produit" href="{{ path('produit_modal', { idProduit: produit.idProduit })}}">
+							<h5 class="">{{produit.nom}}</h5>
+							<img src="images/{{produit.imagePath}}.jpg"/>
+							<h2>{{produit.nom}}</h2>
+							<p>{{produit.prix}}
+								$</p>
+						</a>
+						<button type="button" class="btn btn-modal">Ajouter au panier</button>
+					</div>
+				{% endfor %}
+			{% else %}
+				<p>Aucun produit ne corespond a vos critère de recherche</p>
+			{% endif %}
+		</div>
+
+	</div>
+	<div class="modal" tabindex="-1" id="produit-modal">
+		<div class="modal-dialog">
+			<div id="produit-modal-content" class="modal-content"></div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('scripts/modal.produit.js') }}"></script>
+{% endblock %}

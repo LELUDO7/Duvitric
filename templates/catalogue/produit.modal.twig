@@ -1,0 +1,17 @@
+<div class="modal-header">
+	<h1 class="modal-title">{{ produit.nom }}</h1>
+	<h5>{{ produit.prix }}
+		$</h5>
+</div>
+<div class="modal-body">
+	<img class="img-modal" src="images/{{produit.imagePath}}.jpg"/>
+	<h3>Cat :
+		{{produit.mainCategorie.categorie}}</h3>
+	<h4>Quant :{{ produit.quantiteEnStock }}</h4>
+	<h4>Description :</h4>
+	<p>{{ produit.description }}</p>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-modal">Ajouter au panier</button>
+	<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+</div>
